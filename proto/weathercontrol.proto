@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package weathercontrol.v1;
+
+option go_package = "weathercontrol/pkg/api;v1";
+
+// WeatherType is a string for the type of weather ["Sunny", "Rainy", ...etc].
+// Intensity is an int that represents the intensity of the weather from 1-10.
+
+message GetWeatherRequest {}
+
+message GetWeatherResponse {
+  string weather_type = 1;
+  int32 intensity = 2;
+}
+
+message SetWeatherRequest {
+  string weather_type = 1;
+  int32 intensity = 2;
+}
+
+message SetWeatherResponse {
+  bool success = 1;
+}
+
+service WeatherControlService {
+  // Selects the latest weather that has been set, or a default of {"Sunny", 1}
+  rpc GetWeather(GetWeatherRequest) returns (GetWeatherResponse) {}
+  // Adds a new weather to the database
+  rpc SetWeather(SetWeatherRequest) returns (SetWeatherResponse) {}
+}

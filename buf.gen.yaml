@@ -1,0 +1,12 @@
+version: 'v1'
+plugins:
+  - plugin: 'buf.build/protocolbuffers/go:v1.32.0'
+    out: 'backend/pkg/api'
+    opt: 'paths=source_relative'
+  - plugin: 'buf.build/connectrpc/go:v1.14.0'
+    out: 'backend/pkg/api'
+    opt: 'paths=source_relative'
+  - plugin: 'buf.build/bufbuild/es:v1.10.0'
+    out: 'frontend/codegen'
+  - plugin: 'buf.build/connectrpc/es:v1.6.1'
+    out: 'frontend/codegen'
