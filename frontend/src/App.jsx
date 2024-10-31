@@ -17,7 +17,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
 const transport = createConnectTransport({
-  baseUrl: import.meta.env.DEV ? 'http://localhost:8080' : 'https://backend-865158834110.us-east1.run.app',
+  baseUrl: import.meta.env.DEV ? 'http://localhost:8080' : '<CLOUD-RUN-BACKEND-URL>',
   useHttpGet: true,
 });
 export const API = createClient(WeatherControlService, transport);
